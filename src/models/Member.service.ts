@@ -17,10 +17,10 @@ class MemberService {
   }
 
   /**SPA */
-  public async getRestaurant(): Promise<Member> {
+  public async getShop(): Promise<Member> {
     const result = await this.memberModel
       .findOne({
-        memberType: MemberType.RESTAURANT,
+        memberType: MemberType.SHOP,
       })
       .lean()
       .exec();
@@ -133,7 +133,7 @@ class MemberService {
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
       .findOne({
-        memberType: MemberType.RESTAURANT,
+        memberType: MemberType.SHOP,
       })
       .exec();
     console.log("exist:", exist);
